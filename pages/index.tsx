@@ -32,18 +32,60 @@ export default function Home() {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        justifyContent: "center",
+        justifyContent: "start",
         minHeight: "100vh",
+        padding: "2rem 1rem",
         backgroundColor: "#F5F5F5",
-        padding: "2rem",
       }}
     >
       <img
         src="/logo.png"
         alt="Quit Coach Logo"
-        style={{ maxWidth: "120px", marginBottom: "1.5rem" }}
+        style={{ maxWidth: "100px", marginBottom: "1rem" }}
       />
+      <h1 style={{ fontSize: "1.75rem", fontWeight: "bold", textAlign: "center", marginBottom: "0.5rem" }}>
+        Quit Coach
+      </h1>
+      <p style={{ textAlign: "center", maxWidth: "500px", marginBottom: "1.5rem", fontSize: "1rem", color: "#333" }}>
+        For people quitting substances or healing afterward — quick, clear support to take back control of your life.
+      </p>
 
+      {/* Conversation Starters */}
+      <div style={{ maxWidth: "600px", width: "100%", marginBottom: "1.5rem" }}>
+        <h3 style={{ marginBottom: "0.5rem", fontWeight: "600" }}>Conversation Starters</h3>
+        {[
+          "I’m ready to quit kratom — where do I start?",
+          "I keep relapsing at night. Can we talk about that?",
+          "Why do I feel scared of quitting even though I hate using?",
+          "I want to taper down, but I don’t know how fast to go.",
+          "I'm afraid that if I quit, I won't be able to enjoy my life.",
+          "Can you give me motivation to get through my day?",
+          "I want to quit, but I just don't know where to start.",
+        ].map((starter, idx) => (
+          <div
+            key={idx}
+            onClick={() => {
+              setInput(starter);
+              setTimeout(() => sendMessage(), 100); // auto-send
+            }}
+            style={{
+              backgroundColor: "#fff",
+              padding: "0.75rem 1rem",
+              borderRadius: "0.5rem",
+              marginBottom: "0.5rem",
+              cursor: "pointer",
+              border: "1px solid #ccc",
+              transition: "background 0.2s",
+            }}
+            onMouseOver={(e) => (e.currentTarget.style.backgroundColor = "#f0f0f0")}
+            onMouseOut={(e) => (e.currentTarget.style.backgroundColor = "#fff")}
+          >
+            {starter}
+          </div>
+        ))}
+      </div>
+
+      {/* Chat Box */}
       <div
         style={{
           width: "100%",
