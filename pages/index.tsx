@@ -1,6 +1,6 @@
+import React from "react";
 import { useState } from "react";
 import LoginGate from "../components/LoginGate";
-import '../styles/globals.css';
 
 export default function Home() {
   const [messages, setMessages] = useState([{ role: "system", content: "You are Quit Coach, a supportive recovery assistant..." }]);
